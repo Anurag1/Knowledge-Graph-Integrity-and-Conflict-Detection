@@ -47,7 +47,7 @@ export default definePluginEntry({
       async execute(_toolCallId, params) {
         return textResult(await store.add(params));
       }
-    }, { name: "graph_memory_add", optional: true });
+    }, { name: "graph_memory_add", optional: true, workspaceAccess: false });
 
     api.registerTool({
       name: "graph_memory_search",
@@ -61,7 +61,7 @@ export default definePluginEntry({
       async execute(_toolCallId, params) {
         return textResult(await store.search(params));
       }
-    }, { name: "graph_memory_search", optional: true });
+    }, { name: "graph_memory_search", optional: true, workspaceAccess: false });
 
     api.registerTool({
       name: "graph_memory_update_status",
@@ -74,7 +74,7 @@ export default definePluginEntry({
       async execute(_toolCallId, params) {
         return textResult(await store.updateStatus(params));
       }
-    }, { name: "graph_memory_update_status", optional: true });
+    }, { name: "graph_memory_update_status", optional: true, workspaceAccess: false });
 
     api.registerTool({
       name: "graph_memory_stats",
@@ -83,7 +83,7 @@ export default definePluginEntry({
       async execute() {
         return textResult(await store.stats());
       }
-    }, { name: "graph_memory_stats", optional: true });
+    }, { name: "graph_memory_stats", optional: true, workspaceAccess: false });
 
     api.logger.info("OpenClaw Graph Memory registered; all tools are opt-in and writes are explicit.");
   }

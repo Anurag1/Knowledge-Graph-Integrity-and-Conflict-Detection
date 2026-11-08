@@ -26,15 +26,15 @@
     "typebox": "1.4.3"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.3.24-beta.2"
+    "openclaw": "2026.11.1"
   },
   "openclaw": {
     "extensions": [
       "./dist/index.js"
     ],
     "compat": {
-      "pluginApi": ">=2026.3.24-beta.2",
-      "minGatewayVersion": "2026.3.24-beta.2"
+      "pluginApi": "2026.11.1",
+      "minGatewayVersion": "2026.11.1"
     }
   }
 }
