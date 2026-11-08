@@ -1,0 +1,42 @@
+{
+  "id": "openclaw-graph-memory",
+  "name": "OpenClaw Graph Memory",
+  "description": "Local graph memory with provenance, temporal status, and relationship-aware retrieval.",
+  "version": "0.1.0",
+  "categories": [
+    "other"
+  ],
+  "contracts": {
+    "tools": [
+      "graph_memory_add",
+      "graph_memory_search",
+      "graph_memory_update_status",
+      "graph_memory_stats"
+    ]
+  },
+  "toolMetadata": {
+    "graph_memory_add": {
+      "optional": true
+    },
+    "graph_memory_search": {
+      "optional": true
+    },
+    "graph_memory_update_status": {
+      "optional": true
+    },
+    "graph_memory_stats": {
+      "optional": true
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "storagePath": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Absolute path to the local JSON graph store. Defaults to ~/.openclaw/graph-memory/store.json."
+      }
+    }
+  }
+}

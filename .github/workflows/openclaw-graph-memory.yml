@@ -1,0 +1,31 @@
+name: OpenClaw Graph Memory CI
+
+on:
+  push:
+    paths:
+      - "integrations/openclaw-graph-memory/**"
+      - ".github/workflows/openclaw-graph-memory.yml"
+  pull_request:
+    paths:
+      - "integrations/openclaw-graph-memory/**"
+      - ".github/workflows/openclaw-graph-memory.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: integrations/openclaw-graph-memory
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
+      - run: npm install --legacy-peer-deps --ignore-scripts --no-audit --no-fund
+      - run: npm run check
+      - run: npm run build
+      - run: npm pack --dry-run
